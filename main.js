@@ -1,14 +1,13 @@
-document.querySelectorAll('.side-panel').forEach(panel => {
-  panel.addEventListener('mouseenter', () => {
-    // Сначала закрываем все панели
-    document.querySelectorAll('.side-panel').forEach(p => {
-      if (p !== panel) p.classList.remove('active');
-    });
-    // Потом открываем только ту, на которую навели
-    panel.classList.add('active');
-  });
+const archiveToggle = document.querySelector('.archive-toggle');
+const archivePanel = document.querySelector('.archive-panel');
 
-  panel.addEventListener('mouseleave', () => {
-    panel.classList.remove('active');
-  });
+archiveToggle.addEventListener('click', () => {
+  archivePanel.classList.toggle('active');
+});
+
+const libraryToggle = document.querySelector('.library-toggle');
+const libraryPanel = document.querySelector('.library-panel');
+
+libraryToggle.addEventListener('click', () => {
+  libraryPanel.classList.toggle('active');
 });
