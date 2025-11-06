@@ -18,3 +18,10 @@ const LojesPanel = document.querySelector('.Lojes-panel');
 LojesToggle.addEventListener('click', () => {
   LojesPanel.classList.toggle('active');
 });
+
+const nastrToggle = document.querySelector('.nastr-toggle');
+const nastrPanel = document.querySelector('.nastr-panel');
+
+nastrToggle.addEventListener('click', () => {
+  nastrPanel.classList.toggle('active');
+});
