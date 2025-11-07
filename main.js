@@ -25,3 +25,7 @@ const nastrPanel = document.querySelector('.nastr-panel');
 nastrToggle.addEventListener('click', () => {
   nastrPanel.classList.toggle('active');
 });
+
+
+
+

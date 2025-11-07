@@ -205,7 +205,7 @@ progressBar.addEventListener('input', () => {
     audio.src = playlist[currentTrack].src;
     title.textContent = playlist[currentTrack].name;
     audio.play();
-    playPauseBtn.textContent = '⏸';
+    playPauseBtn.textContent = '||';
   }
 
   // Когда трек закончился — следующий
@@ -290,7 +290,102 @@ progressBar.addEventListener('input', () => {
   </div>
   <div class="nastr-panel" id="nastr-panel">
     <h1>Настройки<h1>
-    <h4>В разработке...</h4>
+        
+    <!-- 🎵 Звук клика -->
+<audio id="click-sound" src="clickSound.mp4" preload="auto"></audio>
+
+<!-- ⚙️ Панель настроек -->
+<div id="settings-panel">
+  <label class="toggle-sound">
+    <input type="checkbox" id="sound-toggle">
+    <span>Звук клика</span>
+  </label>
+</div>
+
+<style>
+  /* Панель настроек */
+  #settings-panel {
+    position: relative;
+    margin-top: 20px;
+    bottom: 15px;
+    right: 15px;
+    background: rgb(00, 00, 00, 0.5);
+    color: #b8ffff;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 8px 12px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.25);
+    backdrop-filter: blur(5px);
+    font-family: "Inter", sans-serif;
+    z-index: 9999;
+  }
+
+  #settings-panel label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  #settings-panel input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: cyan;
+    cursor: pointer;
+  }
+
+  @media (max-width: 600px) {
+    #settings-panel {
+      bottom: 10px;
+      right: 10px;
+      padding: 6px 10px;
+      font-size: 13px;
+    }
+  }
+</style>
+
+<script>
+  const clickSound = document.getElementById("click-sound");
+  const toggle = document.getElementById("sound-toggle");
+
+  let soundEnabled = localStorage.getItem("click-sound-enabled") !== "false";
+  toggle.checked = soundEnabled;
+
+  let lastTouchTime = 0;
+
+  function playClick() {
+    if (!soundEnabled) return;
+    const now = Date.now();
+    if (now - lastTouchTime < 300) return;
+
+    clickSound.currentTime = 0;
+    clickSound.volume = 0.5;
+    clickSound.play().catch(err => {
+      console.log("Автовоспроизведение заблокировано:", err);
+    });
+  }
+
+  function handleTouch() {
+    if (!soundEnabled) return;
+    lastTouchTime = Date.now();
+    clickSound.currentTime = 0;
+    clickSound.volume = 0.5;
+    clickSound.play().catch(err => {
+      console.log("Автовоспроизведение заблокировано:", err);
+    });
+  }
+
+  document.addEventListener("click", playClick);
+  document.addEventListener("touchstart", handleTouch);
+
+  // 📴 Переключатель звука
+  toggle.addEventListener("change", () => {
+    soundEnabled = toggle.checked;
+    localStorage.setItem("click-sound-enabled", soundEnabled);
+  });
+</script>
+
   </div>
 </div>
 
@@ -382,26 +477,6 @@ particlesJS("particles-js", {
 
 
 
-
-
-<audio id="bg-music" src="SL_track.mp4" autoplay loop></audio>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const audio = document.getElementById('bg-music');
-  audio.volume = 0.5; // громкость (0.0–1.0)
-
-  // iOS/Android блокируют автозапуск — ждём первого взаимодействия
-  function enableAudio() {
-    audio.play().catch(() => {});
-    document.removeEventListener('click', enableAudio);
-    document.removeEventListener('touchstart', enableAudio);
-  }
-
-  document.addEventListener('click', enableAudio);
-  document.addEventListener('touchstart', enableAudio);
-});
-</script>
 
 
 

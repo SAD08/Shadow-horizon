@@ -225,7 +225,7 @@ letter-spacing: 0.2px;
 
     .archive-btn {
   display: inline-block;
-  padding: 1px 95px;
+  padding: 1px 60px;
   background: rgba(0,255,255,0.08);
   border: 1px solid rgba(0,255,255,0.25);
   border-radius: 8px;
