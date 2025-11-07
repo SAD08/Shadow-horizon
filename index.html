@@ -16,7 +16,7 @@
   <header>
     <img src="LogoSH.png" alt="Shadow Horizon Logo" class="logo">
     <p class="SHtxt"> </p><h1>SHADOW HORIZON</h1>
-    <p class="subtitle">Журнал игроков за 287 День</p>
+    <p class="subtitle">Журнал игроков за 288 День</p>
 
   </header>
   <header class="header">
@@ -30,7 +30,7 @@
 <section class="board-area">
   <!-- Доска заданий -->
   <div class="mission-board">
-    <h2>ДОСКА ЗАДАНИЙ ДЕНЬ 288</h2>
+    <h2>ДОСКА ЗАДАНИЙ ДЕНЬ 289</h2>
     <ul>
       <li>🔹 Востановление, легкая тренировка</li>
       <li>🔹 Чтение 20 минут / шахматы / гайд в ТГ</li>
@@ -66,11 +66,11 @@
         <p>Статус: Лидер</p>
         <p>Ранг: D</p>
         <p>Текущий уровень: 49</p>
-        <p>Опыт: <span class="xp">750 / 1060</span></p>
-        <div class="bar"><div class="fill" style="width:70%;"></div></div>
-        <p>Физическая сила: 136</p>
-        <p>Интеллект: 124</p>
-        <p>Духовная энергия: 136</p>
+        <p>Опыт: <span class="xp">950 / 1060</span></p>
+        <div class="bar"><div class="fill" style="width:95%;"></div></div>
+        <p>Физическая сила: 140</p>
+        <p>Интеллект: 127</p>
+        <p>Духовная энергия: 139</p>
       </div>
 
       <!-- Саша -->
@@ -78,12 +78,12 @@
         <img src="AvaSash.jpg" alt="Avatar" class="avatar">
         <h2>Саша</h2>
         <p>Ранг: D</p>
-        <p>Текущий уровень: 49</p>
-        <p>Опыт: <span class="xp">1040 / 1060</span></p>
-        <div class="bar"><div class="fill" style="width: 96%;"></div></div>
-        <p>Физическая сила: 159</p>
-        <p>Интеллект: 126</p>
-        <p>Духовная энергия: 127</p>
+        <p>Текущий уровень: 50</p>
+        <p>Опыт: <span class="xp">230 / 1080</span></p>
+        <div class="bar"><div class="fill" style="width: 23%;"></div></div>
+        <p>Физическая сила: 163</p>
+        <p>Интеллект: 129</p>
+        <p>Духовная энергия: 130</p>
       </div>
 
       <!-- Арслан -->
@@ -105,11 +105,11 @@
         <h2>Вова</h2>
         <p>Ранг: D</p>
         <p>Текущий уровень: 35</p>
-        <p>Опыт: <span class="xp">340 / 760</span></p>
-        <div class="bar"><div class="fill" style="width:40%;"></div></div>
-        <p>Физическая сила: 15</p>
-        <p>Интеллект: 15</p>
-        <p>Духовная энергия: 15</p>
+        <p>Опыт: <span class="xp">390 / 760</span></p>
+        <div class="bar"><div class="fill" style="width:68%;"></div></div>
+        <p>Физическая сила: 16</p>
+        <p>Интеллект: 16</p>
+        <p>Духовная энергия: 16</p>
       </div>
 
       <!-- Тамир -->
@@ -117,20 +117,20 @@
         <img src="tamAva.jpg" alt="Avatar" class="avatar">
         <h2>Тамир</h2>
         <p>Ранг: E</p>
-        <p>Текущий уровень: 11</p>
-        <p>Опыт: <span class="xp">160 / 280</span></p>
-        <div class="bar"><div class="fill" style="width:60%;"></div></div>
-        <p>Физическая сила: 96</p>
-        <p>Интеллект: 78</p>
-        <p>Духовная энергия: 79</p>
+        <p>Текущий уровень: 12</p> 80
+        <p>Опыт: <span class="xp">80 / 300</span></p>
+        <div class="bar"><div class="fill" style="width:25%;"></div></div>
+        <p>Физическая сила: 99</p>
+        <p>Интеллект: 81</p>
+        <p>Духовная энергия: 81</p>
       </div>
     </section>
 
     <section class="inventory">
       <h2>Инвентарь</h2>
       <ul>
-        <li>Rare ключ: <span>60</span></li>
-        <li>Epic ключ: <span>34</span></li>
+        <li>Rare ключ: <span>61</span></li>
+        <li>Epic ключ: <span>35</span></li>
         <li>Legend ключ: <span>1</span></li>
         <li>Shadow ключ: <span>0</span></li>
         <li>Камень улучшения: <span>0</span></li>
@@ -341,34 +341,21 @@ particlesJS("particles-js", {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-<audio id="bg-music" src="SL_track.mp4" autoplay loop></audio>
+<!--клики и касания звук-->
+<audio id="click-sound" src="clickSound.mp4" preload="auto"></audio>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const audio = document.getElementById('bg-music');
-  audio.volume = 0.5; // громкость (0.0–1.0)
+  const clickSound = document.getElementById("click-sound");
 
-  // iOS/Android блокируют автозапуск — ждём первого взаимодействия
-  function enableAudio() {
-    audio.play().catch(() => {});
-    document.removeEventListener('click', enableAudio);
-    document.removeEventListener('touchstart', enableAudio);
+  function playClick() {
+    clickSound.currentTime = 0;
+    clickSound.play().catch(err => {
+      console.log("Автовоспроизведение заблокировано:", err);
+    });
   }
 
-  document.addEventListener('click', enableAudio);
-  document.addEventListener('touchstart', enableAudio);
-});
+  document.addEventListener("click", playClick);
+  document.addEventListener("touchstart", playClick);
 </script>
 
 
@@ -379,6 +366,104 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+<!-- 🎧 === ПЛЕЕР === -->
+<div id="music-player">
+  <button id="prev">⏮</button>
+  <button id="play-pause">▶</button>
+  <button id="next">⏭</button>
+  <span id="track-title">Dark Aria (MINI)</span>
+    <input type="range" id="progress-bar" value="0" min="0" max="100">
+</div>
+
+<audio id="bg-music" preload="auto"></audio>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const audio = document.getElementById('bg-music');
+  const playPauseBtn = document.getElementById('play-pause');
+  const nextBtn = document.getElementById('next');
+  const prevBtn = document.getElementById('prev');
+  const title = document.getElementById('track-title');
+  const progressBar = document.getElementById('progress-bar');
+
+// обновление прогресса
+audio.addEventListener('timeupdate', () => {
+  const progress = (audio.currentTime / audio.duration) * 100;
+  progressBar.value = progress || 0;
+});
+
+// перемотка
+progressBar.addEventListener('input', () => {
+  const newTime = (progressBar.value / 100) * audio.duration;
+  audio.currentTime = newTime;
+});
+
+  // 🎵 Плейлист (добавляй треки сюда)
+  const playlist = [
+    { src: 'SL_track.mp4', name: 'Dark Aria (MINI)' },
+    { src: 'D.A.mp4', name: 'Dark Aria (FULL)' },
+    { src: 'Statue.mp4', name: 'Statue' },
+    // { src: 'next_song.mp4', name: 'Next Song' } ← можно добавить второй трек
+  ];
+
+  let currentTrack = 0;
+  audio.src = playlist[currentTrack].src;
+  title.textContent = playlist[currentTrack].name;
+  audio.volume = 0.5;
+
+  // Воспроизведение при взаимодействии (для iOS/Android)
+  function enableAudio() {
+    audio.play().catch(() => {});
+    document.removeEventListener('click', enableAudio);
+    document.removeEventListener('touchstart', enableAudio);
+  }
+
+  document.addEventListener('click', enableAudio);
+  document.addEventListener('touchstart', enableAudio);
+
+  // ▶ / ⏸
+  playPauseBtn.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      playPauseBtn.textContent = '⏸';
+    } else {
+      audio.pause();
+      playPauseBtn.textContent = '▶';
+    }
+  });
+
+  // ⏭ Следующий трек
+  nextBtn.addEventListener('click', () => {
+    currentTrack = (currentTrack + 1) % playlist.length;
+    changeTrack();
+  });
+
+  // ⏮ Предыдущий трек
+  prevBtn.addEventListener('click', () => {
+    currentTrack = (currentTrack - 1 + playlist.length) % playlist.length;
+    changeTrack();
+  });
+
+  // 🔁 Смена трека
+  function changeTrack() {
+    audio.src = playlist[currentTrack].src;
+    title.textContent = playlist[currentTrack].name;
+    audio.play();
+    playPauseBtn.textContent = '⏸';
+  }
+
+  // Когда трек закончился — следующий
+  audio.addEventListener('ended', () => {
+    if (playlist.length === 1) {
+      audio.currentTime = 0;
+      audio.play();
+    } else {
+      currentTrack = (currentTrack + 1) % playlist.length;
+      changeTrack();
+    }
+  });
+});
+</script>
 
 
 

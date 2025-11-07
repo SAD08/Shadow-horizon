@@ -15,7 +15,8 @@
 
   <header>
     <img src="arch.png" alt="arch" class="logo_arch">
-    <p class="SHtxt"> </p><h1>АРХИВ 1 СЕЗОНА</h1>
+    <p class="SHtxt"> </p><h1>АРХИВ</h1>
+    <h1>1 СЕЗОНА</h1> 
     <p class="subtitle">Журнал игроков за 252 День</p>
 
   </header>
@@ -121,7 +122,104 @@
 
 
 
+<!-- 🎧 === ПЛЕЕР === -->
+<div id="music-player">
+  <button id="prev">⏮</button>
+  <button id="play-pause">▶</button>
+  <button id="next">⏭</button>
+  <span id="track-title">Dark Aria (MINI)</span>
+    <input type="range" id="progress-bar" value="0" min="0" max="100">
+</div>
 
+<audio id="bg-music" preload="auto"></audio>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const audio = document.getElementById('bg-music');
+  const playPauseBtn = document.getElementById('play-pause');
+  const nextBtn = document.getElementById('next');
+  const prevBtn = document.getElementById('prev');
+  const title = document.getElementById('track-title');
+  const progressBar = document.getElementById('progress-bar');
+
+// обновление прогресса
+audio.addEventListener('timeupdate', () => {
+  const progress = (audio.currentTime / audio.duration) * 100;
+  progressBar.value = progress || 0;
+});
+
+// перемотка
+progressBar.addEventListener('input', () => {
+  const newTime = (progressBar.value / 100) * audio.duration;
+  audio.currentTime = newTime;
+});
+
+  // 🎵 Плейлист (добавляй треки сюда)
+  const playlist = [
+    { src: 'SL_track.mp4', name: 'Dark Aria (MINI)' },
+    { src: 'D.A.mp4', name: 'Dark Aria (FULL)' },
+    { src: 'Statue.mp4', name: 'Statue' },
+    // { src: 'next_song.mp4', name: 'Next Song' } ← можно добавить второй трек
+  ];
+
+  let currentTrack = 0;
+  audio.src = playlist[currentTrack].src;
+  title.textContent = playlist[currentTrack].name;
+  audio.volume = 0.5;
+
+  // Воспроизведение при взаимодействии (для iOS/Android)
+  function enableAudio() {
+    audio.play().catch(() => {});
+    document.removeEventListener('click', enableAudio);
+    document.removeEventListener('touchstart', enableAudio);
+  }
+
+  document.addEventListener('click', enableAudio);
+  document.addEventListener('touchstart', enableAudio);
+
+  // ▶ / ⏸
+  playPauseBtn.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      playPauseBtn.textContent = '⏸';
+    } else {
+      audio.pause();
+      playPauseBtn.textContent = '▶';
+    }
+  });
+
+  // ⏭ Следующий трек
+  nextBtn.addEventListener('click', () => {
+    currentTrack = (currentTrack + 1) % playlist.length;
+    changeTrack();
+  });
+
+  // ⏮ Предыдущий трек
+  prevBtn.addEventListener('click', () => {
+    currentTrack = (currentTrack - 1 + playlist.length) % playlist.length;
+    changeTrack();
+  });
+
+  // 🔁 Смена трека
+  function changeTrack() {
+    audio.src = playlist[currentTrack].src;
+    title.textContent = playlist[currentTrack].name;
+    audio.play();
+    playPauseBtn.textContent = '⏸';
+  }
+
+  // Когда трек закончился — следующий
+  audio.addEventListener('ended', () => {
+    if (playlist.length === 1) {
+      audio.currentTime = 0;
+      audio.play();
+    } else {
+      currentTrack = (currentTrack + 1) % playlist.length;
+      changeTrack();
+    }
+  });
+});
+</script>
 
 
 
@@ -192,7 +290,7 @@
   </div>
   <div class="nastr-panel" id="nastr-panel">
     <h1>Настройки<h1>
-    <h4><button id="toggleParticlesBtn">Отключить частицы</button></h4>
+    <h4>В разработке...</h4>
   </div>
 </div>
 
@@ -208,6 +306,106 @@
 
 <!-- подключай main.js только один раз внизу страницы -->
 <script src="main.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--ЧАСТИЦЫ-->
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<div id="particles-js"></div>
+
+<script>
+particlesJS("particles-js", {
+  "particles": {
+    "number": { "value": 70, "density": { "enable": true, "value_area": 800 } },
+    "color": { "value": ["#00ffff", "#66ffff", "#00cccc"] },
+    "shape": { "type": "circle" },
+    "opacity": {
+      "value": 0.6,
+      "random": true,
+      "anim": { "enable": true, "speed": 1.2, "opacity_min": 0.1, "sync": false }
+    },
+    "size": {
+      "value": 3,
+      "random": true,
+      "anim": { "enable": true, "speed": 2, "size_min": 0.5, "sync": false }
+    },
+    "line_linked": {
+      "enable": true,
+      "distance": 150,
+      "color": "#00ffff",
+      "opacity": 0.2,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 1.2,
+      "direction": "none",
+      "random": true,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": { "enable": true, "mode": "repulse" },
+      "onclick": { "enable": false },
+      "resize": true
+    },
+    "modes": {
+      "repulse": { "distance": 120, "duration": 0.4 }
+    }
+  },
+  "retina_detect": true
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<audio id="bg-music" src="SL_track.mp4" autoplay loop></audio>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const audio = document.getElementById('bg-music');
+  audio.volume = 0.5; // громкость (0.0–1.0)
+
+  // iOS/Android блокируют автозапуск — ждём первого взаимодействия
+  function enableAudio() {
+    audio.play().catch(() => {});
+    document.removeEventListener('click', enableAudio);
+    document.removeEventListener('touchstart', enableAudio);
+  }
+
+  document.addEventListener('click', enableAudio);
+  document.addEventListener('touchstart', enableAudio);
+});
+</script>
+
+
+
+
 
 </body>
 </html>
