@@ -341,22 +341,8 @@ particlesJS("particles-js", {
 
 
 
-<!--клики и касания звук-->
-<audio id="click-sound" src="clickSound.mp4" preload="auto"></audio>
 
-<script>
-  const clickSound = document.getElementById("click-sound");
 
-  function playClick() {
-    clickSound.currentTime = 0;
-    clickSound.play().catch(err => {
-      console.log("Автовоспроизведение заблокировано:", err);
-    });
-  }
-
-  document.addEventListener("click", playClick);
-  document.addEventListener("touchstart", playClick);
-</script>
 
 
 
@@ -425,7 +411,7 @@ progressBar.addEventListener('input', () => {
   playPauseBtn.addEventListener('click', () => {
     if (audio.paused) {
       audio.play();
-      playPauseBtn.textContent = '⏸';
+      playPauseBtn.textContent = '||';
     } else {
       audio.pause();
       playPauseBtn.textContent = '▶';
