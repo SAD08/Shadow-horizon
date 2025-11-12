@@ -185,9 +185,12 @@ letter-spacing: 0.2px;
   background: rgba(255,255,255,0.03);
 }
 
-  .archive-btn {
-  display: inline-block;
-  padding: 1px 165px;
+    .archive-btn,
+.D-btn {
+  display: block; /* теперь каждая кнопка — отдельная строка */
+  width: fit-content; /* подстраивается под содержимое */
+  margin: 0 auto 10px; /* центрирует и добавляет отступ снизу */
+  padding: 5px 60px;
   background: rgba(0,255,255,0.08);
   border: 1px solid rgba(0,255,255,0.25);
   border-radius: 8px;
@@ -195,9 +198,18 @@ letter-spacing: 0.2px;
   text-decoration: none;
   transition: 0.2s;
 }
-.archive-btn:hover {
+
+.archive-btn:hover,
+.D-btn:hover {
   background: rgba(0,255,255,0.2);
   transform: translateY(-2px);
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column; /* располагает элементы в столбик */
+  gap: 10px; /* расстояние между кнопками */
+  align-items: center; /* выравнивает по центру, можно убрать */
 }
 
 /* === 📱 Адаптивность === */
@@ -208,7 +220,7 @@ letter-spacing: 0.2px;
     right: 60px;         /* прижмётся к правому краю */
     top: 70px;        /* немного ниже кнопки */
   }
-
+  
   .archive-panel {
     right: 0;
   }
@@ -223,21 +235,30 @@ letter-spacing: 0.2px;
     height: 40px;
   }
 
-    .archive-btn {
+    .archive-btn,
+.D-btn {
   display: inline-block;
-  padding: 1px 60px;
+  padding: 1px 20px;
   background: rgba(0,255,255,0.08);
   border: 1px solid rgba(0,255,255,0.25);
   border-radius: 8px;
   color: cyan;
   text-decoration: none;
   transition: 0.2s;
+  margin: 5px; /* <-- добавляет отступ между кнопками */
 }
-.archive-btn:hover {
+
+.archive-btn:hover,
+.D-btn:hover {
   background: rgba(0,255,255,0.2);
   transform: translateY(-2px);
 }
 
+.btn-container {
+  display: flex;
+  flex-direction: column; /* располагает элементы в столбик */
+  gap: 10px; /* расстояние между кнопками */
+  align-items: center; /* выравнивает по центру, можно убрать */
 }
 
 @media (max-width: 600px) {
