@@ -43,6 +43,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-decoration-line: none;
 }
 
 @media (max-width: 600px){
