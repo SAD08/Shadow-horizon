@@ -26,7 +26,7 @@ body {
 }
 
 .osnov-btn{
-  margin-top: 500px;
+  margin-top: 120px;
   background: rgba(0, 0, 0, 0.212);
   border: 2px solid rgb(0, 255, 255);
   border-radius: 10px;
@@ -35,7 +35,7 @@ body {
 -webkit-backdrop-filter: blur(10px);
   width: 500px;
   max-width: 250px 10px;
-  margin: 40px auto; /* центрирует доску по горизонтали */
+  margin: 60px auto; /* центрирует доску по горизонтали */
   color: #fff;
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.411);
   text-align: left;
@@ -43,7 +43,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-decoration-line: none;
+  text-decoration: none;
 }
 
 @media (max-width: 600px){
@@ -105,12 +105,101 @@ letter-spacing: 0.2px;
 
 
 
+#login-screen {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.63);
+  backdrop-filter: blur(100px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  transition: opacity 0.3s ease;
+}
+
+.login-box {
+  background: #11111196;
+  padding: 25px;
+  border-radius: 12px;
+  width: 300px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    border: 2px solid rgb(0, 255, 255);
+  box-shadow: 0 0 22px rgba(0, 255, 255, 0.274);
+}
+
+.login-box input {
+  width: 90%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: #22222294;
+  color: #fff;
+    border: 2px solid rgb(0, 255, 255);
+  box-shadow: 0 0 22px rgba(0, 255, 255, 0.274);
+}
+
+.login-box button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #00000050;
+  color: #ffffff;
+  cursor: pointer;
+  transition: 0.3s;
+    border: 2px solid rgb(0, 255, 255);
+  box-shadow: 0 0 22px rgba(0, 255, 255, 0.274);
+}
+
+.login-box button:hover {
+  background: #00e1ff7c;
+}
+
+#error-msg {
+  margin-top: 10px;
+  color: #ffffff;
+  font-size: 14px;
+}
 
 
 
-/* === БОКОВЫЕ ПАНЕЛИ (АДАПТИВНЫЕ) === */
 
-/* Контейнер панели арх */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* === БОКОВЫЕ ПАНЕЛИ (ОБНОВЛЁННЫЙ и ИСПРАВЛЕННЫЙ КОД) === */
+
+/* Контейнер панели архива */
 .archive-container {
   position: absolute;
   top: 20px;
@@ -118,18 +207,17 @@ letter-spacing: 0.2px;
   z-index: 10;
 }
 
-/* Кнопка */
+/* Кнопка-иконка */
 .archive-toggle {
   position: relative;
   top: 70px;
-  background: rgba(40, 40, 40, 0.267);
+  background: rgba(0, 0, 0, 0.340);
   border: 2px solid rgb(0, 255, 255);
   box-shadow: 0 0 22px rgba(0, 255, 255, 0.274);
   backdrop-filter: blur(10px);
   border-radius: 14px;
   padding: 10px;
   cursor: pointer;
-  overflow: hidden;
   transition: background 0.3s ease, transform 0.3s ease;
 }
 
@@ -143,6 +231,10 @@ letter-spacing: 0.2px;
   width: 48px;
   height: 48px;
   transition: transform 0.3s ease;
+}
+
+@media screen {
+  
 }
 
 .archive-toggle:hover .archive-icon {
@@ -164,31 +256,28 @@ letter-spacing: 0.2px;
   backdrop-filter: blur(30px);
   transition: width 0.4s ease, height 0.4s ease, padding 0.3s ease;
   padding: 0;
-  z-index: 999
+  z-index: 999;
 }
 
-/* Когда активна */
+/* Открытая панель — полностью адаптивная */
 .archive-panel.active {
-  width: 500px;
-  height: 800px;
-  padding: 15px;
-  /* открытая/активная панель — адаптивная и с внутренним скроллом */
-
-  width: min(500px, 90vw);  /* максимум 500px, иначе 90% ширины экрана */
   max-width: 90vw;
-  /* Вместо жёсткой высоты ставим max-height (высота зависит от экрана) */
-  max-height: 80vh;         /* чтобы не выходила за экран */
+  max-height: 200vh;
+  width: 500px;
+  height: 770px;
   padding: 15px;
-  
-  /* важные строки для скролла */
-  overflow-y: auto;               /* вертикальная прокрутка */
+
+  overflow-y: auto;
   overflow-x: hidden;
-  -webkit-overflow-scrolling: touch; /* плавный нативный скролл на iOS */
-  touch-action: pan-y;               /* разрешаем вертикальные жесты */
-  overscroll-behavior: contain;      /* не передавать скролл наружу (не скроллить body) */
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  overscroll-behavior: contain;
 }
 
-.archive-panel.active::-webkit-scrollbar { width: 6px; }
+/* Скролл в панели */
+.archive-panel.active::-webkit-scrollbar {
+  width: 6px;
+}
 .archive-panel.active::-webkit-scrollbar-thumb {
   background: rgba(0,255,255,0.45);
   border-radius: 6px;
@@ -197,11 +286,12 @@ letter-spacing: 0.2px;
   background: rgba(255,255,255,0.03);
 }
 
-    .archive-btn,
+/* Кнопки в панели (КОМПОНУЮ СТОЛБИКОМ) */
+.archive-btn,
 .D-btn {
-  display: block; /* теперь каждая кнопка — отдельная строка */
-  width: fit-content; /* подстраивается под содержимое */
-  margin: 0 auto 10px; /* центрирует и добавляет отступ снизу */
+  display: flex;
+  width: fit-content;
+  margin: 0 0 10px;
   padding: 5px 60px;
   background: rgba(0,255,255,0.08);
   border: 1px solid rgba(0,255,255,0.25);
@@ -209,74 +299,20 @@ letter-spacing: 0.2px;
   color: cyan;
   text-decoration: none;
   transition: 0.2s;
+   width: 100%;
+    height: 20%;
 }
 
 .archive-btn:hover,
 .D-btn:hover {
   background: rgba(0,255,255,0.2);
   transform: translateY(-2px);
-}
-
-.btn-container {
-  display: flex;
-  flex-direction: column; /* располагает элементы в столбик */
-  gap: 10px; /* расстояние между кнопками */
-  align-items: center; /* выравнивает по центру, можно убрать */
-}
-
-/* === 📱 Адаптивность === */
-@media (max-width: 1024px) {
-  .archive-panel.active {
-    width: 80vw;      /* ширина 80% экрана */
-    height: 70vh;     /* высота 70% высоты экрана */
-    right: 60px;         /* прижмётся к правому краю */
-    top: 70px;        /* немного ниже кнопки */
-  }
-  
-  .archive-panel {
-    right: 0;
-  }
-
-  .archive-container {
-    right: 10px;
-    top: 30px;
-  }
-
-  .archive-icon {
-    width: 40px;
-    height: 40px;
-  }
-
-    .archive-btn,
-.D-btn {
-  display: inline-block;
-  padding: 1px 20px;
-  background: rgba(0,255,255,0.08);
-  border: 1px solid rgba(0,255,255,0.25);
-  border-radius: 8px;
-  color: cyan;
-  text-decoration: none;
-  transition: 0.2s;
-  margin: 5px; /* <-- добавляет отступ между кнопками */
-}
-
-.archive-btn:hover,
-.D-btn:hover {
-  background: rgba(0,255,255,0.2);
-  transform: translateY(-2px);
-}
-
-.btn-container {
-  display: flex;
-  flex-direction: column; /* располагает элементы в столбик */
-  gap: 10px; /* расстояние между кнопками */
-  align-items: center; /* выравнивает по центру, можно убрать */
 }
 
 @media (max-width: 600px) {
   .archive-panel.active {
-    width: 80vw;
-    height: 60vh;
+    width: 80vw;      /* почти вся ширина */
+    height: 60vh;     /* поменьше высота */
     border-radius: 8px;
   }
 
@@ -289,6 +325,25 @@ letter-spacing: 0.2px;
     height: 36px;
   }
 
+  .archive-container {
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  z-index: 10;
+  }
+
+.archive-btn,
+.D-btn {
+    width: 100%;
+    height: 20%;
+}
+
+  .archive-panel.active {
+  width: 80vw;      /* ширина 80% экрана */
+    height: 70vh;     /* высота 70% */
+    right: 60px;
+    top: 70px;
+}
 }
 
 
@@ -330,7 +385,7 @@ letter-spacing: 0.2px;
 
 /* Кнопка */
 .library-toggle {
-  position: relative;
+ position: relative;
   top: 150px;
   background: rgba(0, 0, 0, 0.340);
   border: 2px solid rgb(0, 255, 255);
@@ -432,8 +487,8 @@ letter-spacing: 0.2px;
   }
 
   .library-icon {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
   }
 }
 
@@ -452,6 +507,14 @@ letter-spacing: 0.2px;
     width: 36px;
     height: 36px;
   }
+
+  .library-panel.active {
+    width: 80vw;      /* ширина 80% экрана */
+    height: 70vh;     /* высота 70% */
+    right: 60px;
+    top: 150px;
+  }
+
 }
 
 
@@ -1108,6 +1171,7 @@ header {
   max-width: 1000px;        /* общий контейнер шириной экрана */
   box-sizing: border-box;
   padding-bottom: 8px;
+ 
 }
 
 /* Одна карточка объявления — ведёт себя как карточка игрока */
@@ -1125,6 +1189,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 
 /* Hover-эффект (как у карточек игроков) */
@@ -1203,6 +1268,7 @@ h1 {
 .players {
   display: flex;
   flex-wrap: wrap;
+  
   justify-content: center;
   gap: 25px;
   padding: -30px;
@@ -1216,6 +1282,7 @@ h1 {
   width: 280px;
   box-shadow: 0 0 25px rgba(0, 255, 255, 0.1);
   transition: 0.3s;
+  backdrop-filter: blur(10px);
 }
 
 .player:hover {
