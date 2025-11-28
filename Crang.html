@@ -457,6 +457,48 @@ particlesJS("particles-js", {
 
 
 
+<!-- Эффект затемнения (или блюра) -->
+<div id="page-transition"></div>
+
+<script>
+  const transition = document.getElementById("page-transition");
+
+  // Плавное появление при загрузке
+  window.onload = () => {
+    transition.classList.remove("active");
+  };
+
+  // Плавный уход при переходе по ссылке
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", e => {
+      // запрещаем переход для пустых ссылок
+      if (link.getAttribute("href") === "#" || link.getAttribute("href") === "") return;
+
+      e.preventDefault();
+      const url = link.href;
+
+      transition.classList.add("active");
+
+      setTimeout(() => {
+        window.location.href = url;
+      }, 400); // время совпадает с CSS
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

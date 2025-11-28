@@ -16,7 +16,7 @@
   <header>
     <img src="LogoSH.png" alt="Shadow Horizon Logo" class="logo">
     <p class="SHtxt"> </p><h1>SHADOW HORIZON</h1>
-    <p class="subtitle">Журнал игроков за 308 День</p>
+    <p class="subtitle">Журнал игроков за 309 День</p>
 
   </header>
   <header class="header">
@@ -30,9 +30,9 @@
 <section class="board-area">
   <!-- Доска заданий -->
   <div class="mission-board">
-    <h2>ДОСКА ЗАДАНИЙ ДЕНЬ 309</h2>
+    <h2>ДОСКА ЗАДАНИЙ ДЕНЬ 310</h2>
     <ul>
-      <li>• отжимания 2 подхода</li>
+      <li>• пресс 3 подхода, планка минута</li>
       <li>• Чтение 20 минут / шахматы / гайд в ТГ</li>
       <li>• Медитация 10-20 минут</li>
       <li>• Сделать отчет за день в ТГ</li>
@@ -70,11 +70,11 @@
         <p>Статус: Лидер Теней</p>
         <p>Ранг: C</p>
         <p>Текущий уровень: 58</p>
-        <p>Опыт: <span class="xp">490 / 1140</span></p>
-        <div class="bar"><div class="fill" style="width:48%;"></div></div>
-        <p>Физическая сила: 230</p>
-        <p>Интеллект: 206</p>
-        <p>Духовная энергия: 218</p>
+        <p>Опыт: <span class="xp">690 / 1140</span></p>
+        <div class="bar"><div class="fill" style="width:68%;"></div></div>
+        <p>Физическая сила: 234</p>
+        <p>Интеллект: 209</p>
+        <p>Духовная энергия: 221</p>
       </div>
 
       <!-- Саша -->
@@ -83,11 +83,11 @@
         <h2>Саша</h2>
         <p>Ранг: C</p>
         <p>Текущий уровень: 58</p>
-        <p>Опыт: <span class="xp">730 / 1140</span></p>
-        <div class="bar"><div class="fill" style="width: 72%;"></div></div>
-        <p>Физическая сила: 257</p>
-        <p>Интеллект: 207</p>
-        <p>Духовная энергия: 208</p>
+        <p>Опыт: <span class="xp">930 / 1140</span></p>
+        <div class="bar"><div class="fill" style="width: 22%;"></div></div>
+        <p>Физическая сила: 261</p>
+        <p>Интеллект: 210</p>
+        <p>Духовная энергия: 211</p>
       </div>
 
       <!-- Арслан -->
@@ -109,11 +109,11 @@
         <h2>Вова</h2>
         <p>Ранг: D</p>
         <p>Текущий уровень: 36</p>
-        <p>Опыт: <span class="xp">380 / 780</span></p>
-        <div class="bar"><div class="fill" style="width:25%;"></div></div>
-        <p>Физическая сила: 31</p>
-        <p>Интеллект: 31</p>
-        <p>Духовная энергия: 31</p>
+        <p>Опыт: <span class="xp">430 / 780</span></p>
+        <div class="bar"><div class="fill" style="width:58%;"></div></div>
+        <p>Физическая сила: 32</p>
+        <p>Интеллект: 32</p>
+        <p>Духовная энергия: 32</p>
       </div>
 
       <!-- Тамир -->
@@ -122,19 +122,19 @@
         <h2>Тамир</h2>
         <p>Ранг: E</p>
         <p>Текущий уровень: 21</p>
-        <p>Опыт: <span class="xp">50 / 480</span></p>
-        <div class="bar"><div class="fill" style="width:3%;"></div></div>
-        <p>Физическая сила: 164</p>
-        <p>Интеллект: 135</p>
-        <p>Духовная энергия: 137</p>
+        <p>Опыт: <span class="xp">250 / 480</span></p>
+        <div class="bar"><div class="fill" style="width:52%;"></div></div>
+        <p>Физическая сила: 168</p>
+        <p>Интеллект: 138</p>
+        <p>Духовная энергия: 140</p>
       </div>
     </section>
 
     <section class="inventory">
       <h2>Инвентарь</h2>
       <ul>
-        <li>Rare ключ: <span>87</span></li>
-        <li>Epic ключ: <span>53</span></li>
+        <li>Rare ключ: <span>89</span></li>
+        <li>Epic ключ: <span>55</span></li>
         <li>Legend ключ: <span>2</span></li>
         <li>Shadow ключ: <span>1</span></li>
         <li>Камень улучшения: <span>0</span></li>
@@ -243,16 +243,9 @@
   </div>
   <div class="nastr-panel" id="nastr-panel">
     <h1>Настройки<h1>
-
-
-
-
-
-
-
-
-<!-- 🎵 Звук клика -->
-<audio id="click-sound" src="clickSound.mp3" preload="auto"></audio>
+        
+    <!-- 🎵 Звук клика -->
+<audio id="click-sound" src="clickSound.mp4" preload="auto"></audio>
 
 <!-- ⚙️ Панель настроек -->
 <div id="settings-panel">
@@ -261,52 +254,6 @@
     <span>Звук клика</span>
   </label>
 </div>
-
-<script>
-  const clickSound = document.getElementById("click-sound");
-  const soundToggle = document.getElementById("sound-toggle");
-
-  // Восстанавливаем состояние звука из памяти
-  let soundEnabled = localStorage.getItem("click-sound-enabled") !== "false";
-  soundToggle.checked = soundEnabled;
-
-  // Чтобы на телефонах не было двойного звука
-  let lastTouch = 0;
-
-  function playClick() {
-    if (!soundEnabled) return;
-
-    const now = Date.now();
-    if (now - lastTouch < 300) return; // защита от двойного клика на телефоне
-
-    clickSound.currentTime = 0;
-    clickSound.volume = 0.5;
-
-    clickSound.play().catch(() => {});
-  }
-
-  // Ловим касания (для анти-двойного звука)
-  document.addEventListener("touchstart", () => {
-    lastTouch = Date.now();
-  });
-
-  // Ловим клики на всех элементах
-  document.addEventListener("click", playClick);
-
-  // Изменение состояния чекбокса
-  soundToggle.addEventListener("change", () => {
-    soundEnabled = soundToggle.checked;
-    localStorage.setItem("click-sound-enabled", soundEnabled);
-  });
-</script>
-
-
-
-
-
-
-
-
 
 <style>
   /* Панель настроек */
@@ -351,6 +298,46 @@
   }
 </style>
 
+<script>
+  const clickSound = document.getElementById("click-sound");
+  const toggle = document.getElementById("sound-toggle");
+
+  let soundEnabled = localStorage.getItem("click-sound-enabled") !== "false";
+  toggle.checked = soundEnabled;
+
+  let lastTouchTime = 0;
+
+  function playClick() {
+    if (!soundEnabled) return;
+    const now = Date.now();
+    if (now - lastTouchTime < 300) return;
+
+    clickSound.currentTime = 0;
+    clickSound.volume = 0.5;
+    clickSound.play().catch(err => {
+      console.log("Автовоспроизведение заблокировано:", err);
+    });
+  }
+
+  function handleTouch() {
+    if (!soundEnabled) return;
+    lastTouchTime = Date.now();
+    clickSound.currentTime = 0;
+    clickSound.volume = 0.5;
+    clickSound.play().catch(err => {
+      console.log("Автовоспроизведение заблокировано:", err);
+    });
+  }
+
+  document.addEventListener("click", playClick);
+  document.addEventListener("touchstart", handleTouch);
+
+  // 📴 Переключатель звука
+  toggle.addEventListener("change", () => {
+    soundEnabled = toggle.checked;
+    localStorage.setItem("click-sound-enabled", soundEnabled);
+  });
+</script>
 
   </div>
 </div>
@@ -563,9 +550,59 @@ progressBar.addEventListener('input', () => {
 
 
 
-<!--  ПАРОООООЛЬ    -->
+
 
 <script src="main.js"></script>
+
+
+
+
+
+
+
+
+
+
+<!-- Эффект затемнения (или блюра) -->
+<div id="page-transition"></div>
+
+<script>
+  const transition = document.getElementById("page-transition");
+
+  // Плавное появление при загрузке
+  window.onload = () => {
+    transition.classList.remove("active");
+  };
+
+  // Плавный уход при переходе по ссылке
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", e => {
+      // запрещаем переход для пустых ссылок
+      if (link.getAttribute("href") === "#" || link.getAttribute("href") === "") return;
+
+      e.preventDefault();
+      const url = link.href;
+
+      transition.classList.add("active");
+
+      setTimeout(() => {
+        window.location.href = url;
+      }, 400); // время совпадает с CSS
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

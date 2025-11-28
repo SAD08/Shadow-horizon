@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Вход</title>
+
+ <link rel="stylesheet" href="s.css">
+
+ <div class="overlay"></div>
+
+  <footer class="footer">
+    <p>Shadow Horizon © 2025</p>
+  </footer>
+
+
+
+
+
+ </header>
+  <header class="header">
+  <h1 class="clan-name">Shadow Horizon</h1>
+  <nav class="nav">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  </nav>
+</header>
+
+
+
+
+
+
+
+
+
+
+
+  <header>
+    <img src="LogoSH.png" alt="Shadow Horizon Logo" class="logo">
+    <p class="SHtxt"> </p><h1>SHADOW HORIZON</h1>
+    <p class="subtitle"></p>
+
+
+
+
+
+
+
+
+<style>
+
+    body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    color: cyan;
+    font-family: Arial;
+  }
+
+.logo{
+  position: relative;
+    margin-top: -120px;
+}
+
+  .login-box {
+    background: rgba(0,255,255,0.05);
+    border: 1px solid rgba(0,255,255,0.3);
+    padding: 50px 150px;
+    margin-top: 120px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 0 20px rgb(0, 255, 255);
+    backdrop-filter: blur(10px);
+    max-width: 250px 10px;
+  }
+
+  input {
+    padding: 10px;
+    width: 400px;
+    border-radius: 8px;
+    border: 1px solid cyan;
+    background: rgba(0,0,0,0.4);
+    color: cyan;
+    margin-top: 15px;
+    font-size: 18px;
+    text-align: center;
+      box-shadow: 0 0 20px rgb(0, 255, 255);
+  }
+
+  button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: 1px solid cyan;
+    background: rgba(0,255,255,0.1);
+    color: cyan;
+    box-shadow: 0 0 20px rgb(0, 255, 255);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  button:hover {
+    background: rgba(0,255,255,0.25);
+  }
+
+body {
+  font-family: "Orbitron", sans-serif;
+  color: #fff;
+  background: url("FFFoN.jpg") no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  position: relative;
+}
+
+  @media (max-width: 600px) {
+  .login-box{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;                /* расстояние между карточками объявлений */
+  width: 100%;
+  max-width: 1000px;        /* общий контейнер шириной экрана */
+  box-sizing: border-box;
+  padding-bottom: 8px;
+  padding: 10px 10px;
+  margin-top: 50px;
+    padding: 10px;
+    width: 400px;
+  }
+  }
+
+.logo{
+  position: relative;
+    margin-top: -10px;
+}
+
+  .input{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;                /* расстояние между карточками объявлений */
+  padding: 20px 10px;
+  width: 100%;
+  max-width: 1000px;        /* общий контейнер шириной экрана */
+  box-sizing: border-box;
+  padding-bottom: 8px;
+    padding: 10px;
+    width: 400px;
+  }
+
+    button {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;                /* расстояние между карточками объявлений */
+  width: 100%;
+  max-width: 1000px;        /* общий контейнер шириной экрана */
+  box-sizing: border-box;
+  padding-bottom: 8px;
+  }
+
+  </style>
+
+
+</head>
+
+<body>
+<div class="login-box">
+  <h2>Введите код</h2>
+  <input type="password" id="pass" placeholder="Пароль">
+  <button onclick="login()">Войти</button>
+  <p id="error" style="color:red;margin-top:10px;"></p>
+</div>
+
+<script>
+  const correctPass = "Tma120"; // ← твой пароль
+
+  function login() {
+    const input = document.getElementById("pass").value;
+
+    if (input === correctPass) {
+      localStorage.setItem("authorized", "true");
+      window.location.href = "index.html"; // переход на основную страницу
+    } else {
+      document.getElementById("error").textContent = "Неверный код.";
+    }
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--ЧАСТИЦЫ-->
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<div id="particles-js"></div>
+
+<script>
+particlesJS("particles-js", {
+  "particles": {
+    "number": { "value": 70, "density": { "enable": true, "value_area": 800 } },
+    "color": { "value": ["#00ffff", "#66ffff", "#00cccc"] },
+    "shape": { "type": "circle" },
+    "opacity": {
+      "value": 0.6,
+      "random": true,
+      "anim": { "enable": true, "speed": 1.2, "opacity_min": 0.1, "sync": false }
+    },
+    "size": {
+      "value": 3,
+      "random": true,
+      "anim": { "enable": true, "speed": 2, "size_min": 0.5, "sync": false }
+    },
+    "line_linked": {
+      "enable": true,
+      "distance": 150,
+      "color": "#00ffff",
+      "opacity": 0.2,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 1.2,
+      "direction": "none",
+      "random": true,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": { "enable": true, "mode": "repulse" },
+      "onclick": { "enable": false },
+      "resize": true
+    },
+    "modes": {
+      "repulse": { "distance": 120, "duration": 0.4 }
+    }
+  },
+  "retina_detect": true
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Звук клика -->
+<audio id="clickSound" src="clickSound.mp4" preload="auto"></audio>
+
+<!-- Фоновый трек -->
+<audio id="bgMusic" src="D.A.mp4" preload="auto" loop></audio>
+
+<script>
+    const clickSound = document.getElementById("clickSound");
+    const bgMusic = document.getElementById("bgMusic");
+
+    let clickAllowed = true;
+    let musicStarted = false;
+
+    // Воспроизведение клика (без дабл-клика на телефонах)
+    function playClick() {
+        if (!clickAllowed) return;
+        clickAllowed = false;
+
+        clickSound.currentTime = 0;
+        clickSound.play().catch(()=>{});
+
+        setTimeout(() => { clickAllowed = true; }, 100); 
+    }
+
+    // Запуск музыки после первого действия пользователя
+    function startMusic() {
+        if (!musicStarted) {
+            bgMusic.volume = 0.7;
+            bgMusic.play().catch(()=>{});
+            musicStarted = true;
+        }
+    }
+
+    // Отслеживаем любые клики
+    document.addEventListener("click", () => {
+        playClick();
+        startMusic();
+    }, { passive: true });
+
+    // Отдельно для тачей — чтобы не было двойного звука
+    document.addEventListener("touchstart", () => {
+        startMusic();
+    }, { passive: true });
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
