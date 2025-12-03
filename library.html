@@ -14,9 +14,9 @@
   </footer>
 
   <header>
-    <img src="LogoSH.png" alt="Shadow Horizon Logo" class="logo">
-    <p class="SHtxt"> </p><h1>SHADOW HORIZON</h1>
-    <p class="subtitle">Журнал игроков за 314 День</p>
+    <img src="Bibl.png" alt="bibl" class="logo_arch">
+    <p class="SHtxt"> </p><h1>БИБЛИОТЕКА</h1>
+    <p class="subtitle">Здесь ханится вся информация клана</p>
 
   </header>
   <header class="header">
@@ -26,136 +26,150 @@
   </nav>
 </header>
 
-  <!-- ======= Board area: доска заданий + объявления ======= -->
-<section class="board-area">
-  <!-- Доска заданий -->
-  <div class="mission-board">
-    <h2>ДОСКА ЗАДАНИЙ ДЕНЬ 315</h2>
-    <ul>
-      <li>• рассписание день 6</li>
-      <li>• Чтение 20 минут / шахматы / гайд в ТГ</li>
-      <li>• Медитация 10-20 минут</li>
-      <li>• Сделать отчет за день в ТГ</li>
-    </ul>
+
+<a href="index.html" class="osnov-btn">
+  <h1>Главная</h1>
+</a>
+
+<style>
+  .osnov-btn {
+   
+margin-top: 100px;
+
+  }
+@media (max-width: 600px)
+.osnov-btn {
+   
+    margin-top: 150px;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+
+/* ---- ОБЩИЙ КОНТЕЙНЕР ПО ЦЕНТРУ ---- */
+.read-section {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 10px;
+}
+
+/* ---- КНОПКА РАЗДЕЛА ---- */
+.read-btn {
+  width: 100%;
+  padding: 18px 25px; /* Можешь менять паддинг */
+background: rgba(0, 0, 0, 0.340);
+  border: 2px solid rgb(0, 255, 255);
+  box-shadow: 0 0 22px rgba(0, 255, 255, 0.274);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 20px;
+  text-align: left;
+  transition: 0.3s;
+  margin-bottom: 12px;
+}
+
+.read-btn:hover {
+  background: rgba(0,255,255,0.18);
+  transform: scale(1.02);
+}
+
+/* ---- ПАНЕЛЬ С ТЕКСТОМ ---- */
+.read-panel {
+  max-height: 0;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.32);
+  box-shadow: 0 0 22px rgba(0, 255, 255, 0.274);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  transition: max-height 0.45s ease, padding 0.3s ease;
+  padding: 0 18px; /* боковой паддинг */
+  margin-bottom: 15px;
+}
+
+/* Когда открыта */
+.read-panel.active {
+  padding: 18px; /* верх-низ */
+  max-height: 450px; /* регулируется */
+  overflow-y: auto;
+}
+
+.h1{
+  color: rgb(255, 255, 255);
+
+}
+
+.read-panel p {
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.h {
+  color: #fff;
+
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="read-section">
+
+  <!-- 1. Философия -->
+  <button class="read-btn"> <h3 class="h">Философия</h3></button>
+  <div class="read-panel">
+    <p>
+      Здесь будет текст философии клана.  
+     <h4>ㅤ</h4>
+     Идет разработка...
+    </p>
   </div>
 
-  <!-- Контейнер объявлений (все карточки становятся рядом и выстраиваются автоматически) -->
-  <div class="announcements">
-    <div class="announcement-card">
-      <img src="Ob.png" alt="Winter Arc" class="announcement-img">
-      <h3>Winter Arc</h3>
-    </div>
-    
-
-
-    
-
-    <!-- Пример дополнительной карточки: просто скопируй блок announcement-card при необходимости -->
-    <!--
-    <div class="announcement-card">
-      <img src="image/Another.png" alt="Another Arc" class="announcement-img">
-      <h3>Another Arc</h3>
-    </div>
-    -->
+  <!-- 2. История -->
+  <button class="read-btn"><h3 class="h">История клана</h3></button>
+  <div class="read-panel">
+    <p>
+      История, хроники, главы, всё что нужно.
+      <h4>ㅤ</h4>
+      Идет разработка...
+    </p>
   </div>
-</section>
-<!-- ======= /Board area ======= -->
 
-  <main>
-    <section class="players">
-      <!-- Андрей -->
-      <div class="player">
-        <img src="AvaAnd.jpg" alt="Avatar" class="avatar">
-        <h2>Андрей</h2>
-        <p>Статус: Лидер Теней</p>
-        <p>Ранг: C</p>
-        <p>Текущий уровень: 59</p>
-        <p>Опыт: <span class="xp">450 / 1160</span></p>
-        <div class="bar"><div class="fill" style="width:44%;"></div></div>
-        <p>Физическая сила: 254</p>
-        <p>Интеллект: 224</p>
-        <p>Духовная энергия: 236</p>
-      </div>
+  <!-- 3. Система рангов -->
+  <button class="read-btn"><h3 class="h">Система рангов</h3></button>
+  <div class="read-panel">
+    <p>
+      Полное описание рангов, уровней, переходов.
+      <h4>ㅤ</h4>
+      Идет разработка...
+    </p>
+  </div>
 
-      <!-- Саша -->
-      <div class="player">
-        <img src="AvaSash.jpg" alt="Avatar" class="avatar">
-        <h2>Саша</h2>
-        <p>Статус: Столп Теней</p>
-        <p>Ранг: C</p>
-        <p>Текущий уровень: 59</p>
-        <p>Опыт: <span class="xp">840 / 1160</span></p>
-        <div class="bar"><div class="fill" style="width: 82%;"></div></div>
-        <p>Физическая сила: 281</p>
-        <p>Интеллект: 225</p>
-        <p>Духовная энергия: 226</p>
-      </div>
+</div>
 
-      <!-- Арслан -->
-      <div class="player">
-        <img src="Ava.png" alt="Avatar" class="avatar">
-        <h2>Арслан</h2>
-        <p>Ранг: D</p>
-        <p>Текущий уровень: 35</p>
-        <p>Опыт: <span class="xp">0 / 760</span></p>
-        <div class="bar"><div class="fill" style="width:0%;"></div></div>
-        <p>Физическая сила: 5</p>
-        <p>Интеллект: 5</p>
-        <p>Духовная энергия: 5</p>
-      </div>
-
-      <!-- Вова -->
-      <div class="player">
-        <img src="vovAva.jpg" alt="Avatar" class="avatar">
-        <h2>Вова</h2>
-        <p>Ранг: D</p>
-        <p>Текущий уровень: 36</p>
-        <p>Опыт: <span class="xp">630 / 780</span></p>
-        <div class="bar"><div class="fill" style="width:85%;"></div></div>
-        <p>Физическая сила: 36</p>
-        <p>Интеллект: 36</p>
-        <p>Духовная энергия: 36</p>
-      </div>
-
-      <!-- Тамир -->
-      <div class="player">
-        <img src="tamAva.jpg" alt="Avatar" class="avatar">
-        <h2>Тамир</h2>
-        <p>Ранг: E</p>
-        <p>Текущий уровень: 23</p>
-        <p>Опыт: <span class="xp">270 / 520</span></p>
-        <div class="bar"><div class="fill" style="width:27%;"></div></div>
-        <p>Физическая сила: 188</p>
-        <p>Интеллект: 153</p>
-        <p>Духовная энергия: 155</p>
-      </div>
-    </section>
-
-    <section class="inventory">
-      <h2>Инвентарь</h2>
-      <ul>
-        <li>Rare ключ: <span>97</span></li>
-        <li>Epic ключ: <span>57</span></li>
-        <li>Legend ключ: <span>2</span></li>
-        <li>Shadow ключ: <span>1</span></li>
-        <li>Камень улучшения: <span>0</span></li>
-      </ul>
-    </section>
-  </main>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<script>
+/* ЛОГИКА ОТКРЫТИЯ ПАНЕЛЕЙ */
+document.querySelectorAll(".read-btn").forEach((btn, i) => {
+  btn.addEventListener("click", () => {
+    const panel = btn.nextElementSibling;
+    panel.classList.toggle("active");
+  });
+});
+</script>
 
 
 
@@ -206,8 +220,8 @@
   </div>
   <div class="library-panel" id="library-panel">
     <h1>Библиотека<h1>
-    <a href="library.html" class="D-btn">
-  Библиотека </a>
+    <h4>
+    </h4>
     
     
   </div>
