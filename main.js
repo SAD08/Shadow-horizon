@@ -27,5 +27,7 @@ nastrToggle.addEventListener('click', () => {
 });
 
 
-
+document.querySelector('.pochta-toggle').onclick = () => {
+  document.getElementById('pochta-panel').classList.toggle('active');
+};
 

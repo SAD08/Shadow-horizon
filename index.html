@@ -16,7 +16,7 @@
   <header>
     <img src="LogoSH.png" alt="Shadow Horizon Logo" class="logo">
     <p class="SHtxt"> </p><h1>SHADOW HORIZON</h1>
-    <p class="subtitle">Журнал игроков за 315 День</p>
+    <p class="subtitle">Журнал игроков за 316 День</p>
 
   </header>
   <header class="header">
@@ -26,29 +26,67 @@
   </nav>
 </header>
 
-  <!-- ======= Board area: доска заданий + объявления ======= -->
-<section class="board-area">
+ 
   <!-- Доска заданий -->
   <div class="mission-board">
-    <h2>ДОСКА ЗАДАНИЙ ДЕНЬ 316</h2>
+    <h2>ДОСКА ЗАДАНИЙ ДЕНЬ 317</h2>
     <ul>
-      <li>• рассписание день 7 востонавливаемся</li>
+      <li>• рассписание день 8 востонавливаемся</li>
       <li>• Чтение 20 минут / шахматы / гайд в ТГ</li>
       <li>• Медитация 10-20 минут</li>
       <li>• Сделать отчет за день в ТГ</li>
     </ul>
   </div>
 
-  <!-- Контейнер объявлений (все карточки становятся рядом и выстраиваются автоматически) -->
-  <div class="announcements">
-    <div class="announcement-card">
-      <img src="Ob.png" alt="Winter Arc" class="announcement-img">
-      <h3>Winter Arc</h3>
+
+
+
+
+
+
+
+
+
+
+
+ <div class="events-panel">
+    <div class="events-header">
+        <h2>Ивенты</h2>
+        <span id="events-count">0</span>
     </div>
+
+    <div class="events-scroll" id="events-scroll">
+
+        <!-- Объявление 1 -->
+        <div class="event-card">
+            <img src="Ob.png" alt="event">
+            <p>Winter Arc</p>
+        </div>
+
+        <!-- Просто добавляй больше таких карточек -->
+
+    </div>
+</div>
     
+    <script>
+    const list = document.getElementById("events-scroll");
+    const count = document.getElementById("events-count");
+
+    function updateEventsCount() {
+        const items = list.querySelectorAll(".event-card").length;
+        count.textContent = items;
+    }
+
+    updateEventsCount();
+</script>
 
 
-    
+
+
+
+
+
+
 
     <!-- Пример дополнительной карточки: просто скопируй блок announcement-card при необходимости -->
     <!--
@@ -70,11 +108,11 @@
         <p>Статус: Лидер Теней</p>
         <p>Ранг: C</p>
         <p>Текущий уровень: 59</p>
-        <p>Опыт: <span class="xp">910 / 1160</span></p>
-        <div class="bar"><div class="fill" style="width:90%;"></div></div>
-        <p>Физическая сила: 260</p>
-        <p>Интеллект: 228</p>
-        <p>Духовная энергия: 240</p>
+        <p>Опыт: <span class="xp">1110 / 1160</span></p>
+        <div class="bar"><div class="fill" style="width:97%;"></div></div>
+        <p>Физическая сила: 264</p>
+        <p>Интеллект: 231</p>
+        <p>Духовная энергия: 243</p>
       </div>
 
       <!-- Саша -->
@@ -83,12 +121,12 @@
         <h2>Саша</h2>
         <p>Статус: Столп Теней</p>
         <p>Ранг: C</p>
-        <p>Текущий уровень: 59</p>
-        <p>Опыт: <span class="xp">1040 / 1160</span></p>
-        <div class="bar"><div class="fill" style="width: 97%;"></div></div>
-        <p>Физическая сила: 285</p>
-        <p>Интеллект: 228</p>
-        <p>Духовная энергия: 229</p>
+        <p>Текущий уровень: 60</p>
+        <p>Опыт: <span class="xp">80 / 1180</span></p>
+        <div class="bar"><div class="fill" style="width: 10%;"></div></div>
+        <p>Физическая сила: 289</p>
+        <p>Интеллект: 231</p>
+        <p>Духовная энергия: 231</p>
       </div>
 
       <!-- Арслан -->
@@ -122,19 +160,19 @@
         <img src="tamAva.jpg" alt="Avatar" class="avatar">
         <h2>Тамир</h2>
         <p>Ранг: E</p>
-        <p>Текущий уровень: 23</p>
-        <p>Опыт: <span class="xp">470 / 520</span></p>
+        <p>Текущий уровень: 24</p>
+        <p>Опыт: <span class="xp">150 / 540</span></p>
         <div class="bar"><div class="fill" style="width:95%;"></div></div>
-        <p>Физическая сила: 192</p>
-        <p>Интеллект: 156</p>
-        <p>Духовная энергия: 158</p>
+        <p>Физическая сила: 196</p>
+        <p>Интеллект: 159</p>
+        <p>Духовная энергия: 161</p>
       </div>
     </section>
 
     <section class="inventory">
       <h2>Инвентарь</h2>
       <ul>
-        <li>Rare ключ: <span>99</span></li>
+        <li>Rare ключ: <span>100</span></li>
         <li>Epic ключ: <span>57</span></li>
         <li>Legend ключ: <span>2</span></li>
         <li>Shadow ключ: <span>1</span></li>
@@ -207,7 +245,7 @@
   <div class="library-panel" id="library-panel">
     <h1>Библиотека<h1>
     <a href="library.html" class="D-btn">
-  Библиотека </a>
+  Перейти </a>
     
     
   </div>
@@ -342,6 +380,29 @@
 
   </div>
 </div>
+
+
+
+
+<div class="pochta-container">
+  <div class="pochta-toggle">
+    <img src="PochtaNEW.png" alt="Почта" class="pochta-icon">
+  </div>
+
+  <div class="pochta-panel" id="pochta-panel"> 
+    <h1>Почта</h1> 
+  
+    <h1>•New</h1>
+    <p>Сообщение для игрока "Тамир"</p>
+
+<img class="pochta-img" src="D.png">
+
+      <p>На 25 уровне предстоит аттестация на "D" ранг</p>
+  </div>
+</div>
+<!-- NEW — можно включить/отключить -->
+
+
 
 
   <!--          <div class="side-panel" id="library-panel">

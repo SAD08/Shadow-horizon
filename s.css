@@ -102,7 +102,89 @@ letter-spacing: 0.2px;
 
 
 
+/* Контейнер панели */
+.events-panel {
+    width: 95%;
+    margin: 20px auto;
+    padding: 10px 0;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    border: 1px solid rgb(0, 255, 255);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.399);
+}
 
+/* Заголовок */
+.events-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 18px;
+    align-items: center;
+}
+
+.events-header h2 {
+    margin: 0;
+    font-size: 22px;
+    color: cyan;
+}
+
+#events-count {
+    background: rgba(0,255,255,0.15);
+    padding: 5px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(0,255,255,0.3);
+    color: cyan;
+    font-size: 14px;
+}
+
+/* Горизонтальная прокрутка */
+.events-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 15px;
+    scroll-snap-type: x mandatory;
+}
+
+.events-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.events-scroll::-webkit-scrollbar-thumb {
+    background: rgba(0,255,255,0.4);
+    border-radius: 6px;
+}
+
+/* Карточка */
+.event-card {
+    min-width: 100px;
+    max-width: 200px;
+    background: rgba(0,0,0,0.45);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(0,255,255,0.25);
+    scroll-snap-align: start;
+    transition: 0.25s;
+}
+
+.event-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.432);
+}
+
+/* Картинка объявления */
+.event-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+
+/* Текст */
+.event-card p {
+    margin: 8px;
+    color: cyan;
+    font-size: 15px;
+}
 
 
 
@@ -658,7 +740,7 @@ letter-spacing: 0.2px;
 
 /* === БОКОВАЯ ПАНЕЛЬ: БИБЛИОТЕКА (АДАПТИВНАЯ) === */
 
-/* Контейнер панели библ */
+/* Контейнер панели настроек */
 .nastr-container {
   position: absolute;
   top: 20px;
@@ -792,6 +874,180 @@ letter-spacing: 0.2px;
   }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Контейнер панели почты */
+.pochta-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+/* Кнопка */
+.pochta-toggle {
+  position: relative;
+  top: 390px; /* ты просил расположить примерно на 340px */
+  background: rgba(0, 0, 0, 0.34);
+  border: 2px solid cyan;
+  box-shadow: 0 0 22px rgba(0, 255, 255, 0.27);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.pochta-toggle:hover {
+  background: rgba(60, 60, 60, 0.8);
+  transform: scale(1.05);
+}
+
+/* Иконка */
+.pochta-icon {
+  width: 48px;
+  height: 48px;
+  transition: transform 0.3s ease;
+}
+
+.pochta-toggle:hover .pochta-icon {
+  transform: scale(1.1);
+}
+
+/* Панель */
+.pochta-panel {
+  position: absolute;
+  top: 390px;
+  right: 80px;
+
+  width: 0;
+  height: 500px;
+  padding: 0;
+
+  overflow: hidden;
+
+  background: rgba(0, 0, 0, 0.34);
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 0 22px rgba(0, 255, 255, 0.27);
+  backdrop-filter: blur(30px);
+
+  transition:
+    width 0.4s ease,
+    height 0.4s ease,
+    padding 0.3s ease;
+  
+  z-index: 2000; /* выше остальных, но не ломает */
+}
+
+/* Активная панель — только один блок! */
+.pochta-panel.active {
+  padding: 15px;
+
+  width: min(500px, 90vw);
+  max-width: 90vw;
+
+  max-height: 80vh;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  overscroll-behavior: contain;
+}
+
+/* Скролл */
+.pochta-panel.active::-webkit-scrollbar { width: 6px; }
+.pochta-panel.active::-webkit-scrollbar-thumb {
+  background: rgba(0,255,255,0.45);
+  border-radius: 6px;
+}
+.pochta-panel.active::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.03);
+}
+
+/* === адаптивность === */
+@media (max-width: 1024px) {
+  .pochta-panel.active {
+    width: 80vw;
+    height: 70vh;
+    right: 60px;
+  }
+}
+
+@media (max-width: 600px) {
+  .pochta-panel.active {
+    width: 85vw;
+    height: 60vh;
+    border-radius: 8px;
+  }
+
+  .pochta-toggle {
+    padding: 6px;
+  }
+
+.pochta-container {
+
+  right: 10px;
+}
+
+.pochta-toggle {
+  position: relative;
+  top: 320px; /* ты просил расположить примерно на 340px */
+}
+
+.pochta-panel.active {
+  padding: 15px;
+
+  width: min(300px, 80vw);
+  max-width: 90vw;
+
+  max-height: 80vh;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  overscroll-behavior: contain;
+}
+
+  .pochta-icon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Стили ТОЛЬКО для картинок в почте */
+.pochta-img {
+  display: block;
+  width: 40%;
+  height: auto;
+  margin: 15px 0;        /* расстояние между картинками */
+  min-width: 100px;
+  max-width: 20px;         
+  
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.25);
+  backdrop-filter: blur(5px);
+}
 
 
 
