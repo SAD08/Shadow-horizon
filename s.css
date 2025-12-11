@@ -325,7 +325,7 @@ letter-spacing: 0.2px;
 
 /* Кнопки в панели (КОМПОНУЮ СТОЛБИКОМ) */
 .archive-btn,
-.D-btn {
+.D-btn,.bg-btn {
   display: flex;
   width: fit-content;
   margin: 0 0 10px;

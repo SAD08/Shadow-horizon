@@ -294,6 +294,50 @@
   </label>
 </div>
 
+<div class="bg-select">
+  <h3>Смена фона</h3>
+  <button class="bg-btn" data-bg="normal">Обычный фон</button>
+  <button class="bg-btn" data-bg="xmas">Новогодний фон</button>
+</div>
+
+
+
+<!-- Фоны и тд -->
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const saved = localStorage.getItem("bg");
+  if (saved) setBg(saved);
+
+  document.querySelectorAll(".bg-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const bg = btn.dataset.bg;
+      setBg(bg);
+      localStorage.setItem("bg", bg);
+    });
+  });
+
+  function setBg(bg) {
+    if (bg === "normal") {
+      document.body.style.background = "url('FFFoN.jpg') center/cover no-repeat fixed";
+    }
+    if (bg === "xmas") {
+      document.body.style.background = "url('XmasFon.jpg') center/cover no-repeat fixed";
+    }
+  }
+});
+</script>
+
+<!-- конец Фоны и тд -->
+
+
+
+
+
+
+
+
 <style>
   /* Панель настроек */
   #settings-panel {
@@ -521,9 +565,11 @@ progressBar.addEventListener('input', () => {
 
   // 🎵 Плейлист (добавляй треки сюда)
   const playlist = [
+    { src: 'Battleinthesnow.mp4', name: 'Battle in the snow' },
     { src: 'SL_track.mp4', name: 'Dark Aria (MINI)' },
     { src: 'D.A.mp4', name: 'Dark Aria (FULL)' },
     { src: 'Statue.mp4', name: 'Statue' },
+    
     // { src: 'next_song.mp4', name: 'Next Song' } ← можно добавить второй трек
   ];
 
